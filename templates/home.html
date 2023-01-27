@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block head_tag_title %}Forex Converter{% endblock %}
+{% block form_container %}
+<h1>Forex Converter</h1>
+<form action="/check-currency-codes" method="POST">
+    <label for="convert-from">Convert From</label>
+    <input id="convert-from" type="text" placeholder="Convert From" name="convert-from">
+
+    <label for="convert-to">Convert To</label>
+    <input id="convert-to" type="text" placeholder="Convert To" name="convert-to">
+
+
+    <label for="amount">Amount</label>
+    <input id="amount" type="text" placeholder="Amount" name="amount">
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
+{% block content_container %}
+{% for currency in final_list %}
+<h3 class="currency-list">Converted To: {{currency}}</h3>
+{% endfor %}
+{% endblock %}
